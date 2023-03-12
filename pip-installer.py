@@ -93,9 +93,36 @@ for module in modules:
 
 
 
-# Define a list of packages to test
-packages = ["numpy", "pandas"]
+
+def are_packages_available(packages):
+    unavailable_packages = []
+    for package in packages:
+        try:
+            __import__(package)
+        except ImportError:
+            print(f"Package {package} is not available.")
+            unavailable_packages.append(package)
+    if unavailable_packages:
+        print("The following packages are not available:", unavailable_packages)
+        choice = input("Do you want to remove the unavailable packages? (yes = 1, no = 2): ")
+        if choice == "1":
+            for package in unavailable_packages:
+                packages.remove(package)
+            print("Unavailable packages removed:", unavailable_packages)
+        else:
+            print("Unavailable packages not removed.")
+            return False
+    return True
+packages = ["requests", "numpy", "nonexistentpackage"]
+if are_packages_available(packages):
+    print("All packages are available.")
+    # Run the rest of your code here
+else:
+    print("Not all packages are available.")
+    exit()
+
 logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.WARNING)
+
 def check_internet_connection():
     try:
         response = requests.get("https://www.google.com")
@@ -167,7 +194,7 @@ def check_and_install(package):
                 return False
     else:
         # Check if installed version is up-to-date
-        installed_package = importlib.import_module(package)
+        installed_package = importlib.  import_module(package)
         installed_version = installed_package.__version__
 
         # Get latest version
