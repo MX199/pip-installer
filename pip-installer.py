@@ -1,8 +1,8 @@
 import sys
 import os
 import pkg_resources
-packages = ["tqdm","requests"]
-for package in packages:
+requirements = ["tqdm","requests"]
+for package in requirements:
     if pkg_resources.get_distribution(package):
         print(f"{package} already installed.")
         continue # added this line
