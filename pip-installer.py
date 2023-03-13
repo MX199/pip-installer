@@ -48,7 +48,7 @@ for char in word:
 print()
 
 
-modules = ["subprocess", "tqdm","requests"]
+modules = ["tqdm","requests"]
 for module in modules:
     try:
         globals()[module] = __import__(module)
