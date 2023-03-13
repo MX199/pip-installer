@@ -9,3 +9,4 @@
 <li>Run the command <code>python pip-installer.py</code> and wait for the script to execute. It will check if you have pip installed and if not, it will install it for you. Then, it will check if you have the packages in the list installed and if not, it will install them for you. It will also print some messages to inform you of the progress and the results.</li>
 <li>Enjoy using the packages that you installed!</li>
 </ol>
+![pip-ins](https://user-images.githubusercontent.com/67452715/224691191-3bdb347d-e99a-4fc4-9e55-0dfaa4b17a0a.jpg)
