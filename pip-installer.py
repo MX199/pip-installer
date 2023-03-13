@@ -76,32 +76,32 @@ for module in modules:
 # ██╔══██║██╔══██╗██║░░██║░╚████╔╝░██╔══╝░░
 # ██║░░██║██████╦╝╚█████╔╝░░╚██╔╝░░███████╗
 # ╚═╝░░╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░╚══════╝
-def are_packages_available(packages):
-    unavailable_packages = []
-    for package in packages:
-        try:
-            __import__(package)
-        except ImportError:
-            print(f"Package {package} is not available.")
-            unavailable_packages.append(package)
-    if unavailable_packages:
-        print("The following packages are not available:", unavailable_packages)
-        choice = input("Do you want to remove the unavailable packages? (yes = 1, no = 2): ")
-        if choice == "1":
-            for package in unavailable_packages:
-                packages.remove(package)
-            print("Unavailable packages removed:", unavailable_packages)
-        else:
-            print("Unavailable packages not removed.")
-            return False
-    return True
+# def are_packages_available(packages):
+#     unavailable_packages = []
+#     for package in packages:
+#         try:
+#             __import__(package)
+#         except ImportError:
+#             print(f"Package {package} is not available.")
+#             unavailable_packages.append(package)
+#     if unavailable_packages:
+#         print("The following packages are not available:", unavailable_packages)
+#         choice = input("Do you want to remove the unavailable packages? (yes = 1, no = 2): ")
+#         if choice == "1":
+#             for package in unavailable_packages:
+#                 packages.remove(package)
+#             print("Unavailable packages removed:", unavailable_packages)
+#         else:
+#             print("Unavailable packages not removed.")
+#             return False
+#     return True
+# packages = ["requests", "numpy", "nonexistentpackage"]
+# if are_packages_available(packages):
+#     print("All packages are available.")
+# else:
+#     print("Not all packages are available.")
+#     exit()
 packages = ["requests", "numpy", "nonexistentpackage"]
-if are_packages_available(packages):
-    print("All packages are available.")
-else:
-    print("Not all packages are available.")
-    exit()
-
 logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s', level=logging.WARNING)
 
 def check_internet_connection():
